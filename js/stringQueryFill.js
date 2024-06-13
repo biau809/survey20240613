@@ -48,7 +48,7 @@ function QueryString(qStr){
     //document.getElementById("svSchAddress").innerHTML=${data.SchoolAddress};      //將112年填報的學校地址送回hidden表單
 
 
-	document.getElementById("ReportedPersonName").value=`${data.SchoolITCharge}`;	
+	//document.getElementById("ReportedPersonName").value=`${data.SchoolITCharge}`;	
 	//document.getElementById("PhoneNO").value=`${data.SchoolITCharge}`;
 	
 
