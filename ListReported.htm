@@ -1,0 +1,80 @@
+<html><head><title>新竹縣114年度中小學資訊設備維護及運作費預算編列調查表</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>  
+  <script src="js/ReportedList.js"></script>
+  <script src="js/main.min.js"></script>
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.min.css"/>     <!--loading effect-->  
+  
+  <script>
+ 
+  $(document).on('click', '#btnClick', function(event){
+        
+        //alert(event.target.textContent); 
+         var trigerObj=($(event.target));             //觸發按鈕的物件
+        //https://api.jquery.com/each/        //清除全部按鈕清除格式
+        trigerObj.css("background-color", "black");  //凸顯被按下的按鈕格式
+        trigerObj.css("color", "white");
+
+        QueryString("all");//查詢google sheet學校名稱
+
+        });    
+  </script>
+  <style type="text/css">
+  . {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; 
+  }
+  
+  .
+  </style> 
+  </head>
+  
+  
+  </head>
+  
+  <body style="width:100%；margin: 2%;" onload="QueryString('all')">
+  
+    <h1 id="新竹縣114年度中小學資訊設備維護及運作費預算編列已填報名單" style="
+      border-bottom: 1px solid; text-align: center;font-size: 2.0em;font-family: Roboto, Noto Sans TC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-weight: bold;
+      line-height: 4.5;
+      margin: 30px 0 15px;
+      color:darkgreen;
+      line-height: 2;">新竹縣114年度中小學資訊設備維護及運作費預算編列已填報名單
+    </h1>
+<!------------------------------列出已填報學校名單----------------------------->
+
+  <div class="row" style="border-style:dotted;">
+      <div class="twelve columns">
+          <p style="display: block;
+          margin: 20px;
+          margin-block-start: 1em;
+          margin-block-end: 1em;
+          margin-inline-start: 15px;
+          margin-inline-end: 15px;
+          line-height: 2;
+          font-family: Roboto, Noto Sans TC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+          overflow-wrap: break-word;    
+          
+          unicode-bidi: isolate;">
+          <button class="" id="btnClick">列出已填報學校名單：</button>
+      </div><div id="DateTime"></div>
+      <div id="ReportList">
+      </div>
+  </div>
+  <br>
+  
+  
+  
+  </body>
+  </html>

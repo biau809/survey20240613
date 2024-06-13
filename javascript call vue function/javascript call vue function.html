@@ -1,0 +1,42 @@
+<html>
+    <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+      <script type="text/javascript">
+
+        //  https://stackoverflow.com/questions/40759731/how-to-call-vue-instance-outside-it-in-javascript
+        //  https://v1.vuejs.org/guide/events.html
+        function clickit() {
+        console.log("entered")
+        test.fetchTestData();    
+        //this.fetchTestData();    
+     }
+     
+    // var test = new Vue({
+    "use strict";var test =new Vue({
+    
+         el: '#viewport',
+         data: {
+             test_data: []
+         },
+     
+        //若要在body onload 一開始就執行，加入以下3行：
+
+         //mounted: function () {                        
+         //    this.fetchTestData();
+         //},
+     
+         methods: {
+             fetchTestData: function () {
+               console.log("function at vue line 22");
+               alert("function at vue");
+             }
+         }
+     });
+    </script>
+    </head>
+  <body>
+      <div id="viewport">
+        <button onclick="clickit()">Click here to invoke vue function</button>
+      </div>
+  </body>
+</html>

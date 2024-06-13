@@ -1,0 +1,944 @@
+<html><head><title>新竹縣114年度中小學資訊設備維護及運作費預算編列調查表</title>
+
+<meta charset="UTF-8">
+<meta name="viewport"  content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/marco.js"></script>
+<script src="js/jquery-uuid.js"></script>
+<script src="js/CreatePDF.js"></script>
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/skeleton.css">
+<link rel="stylesheet" href="css/style.min.css"/>     <!--loading effect-->
+
+
+<script>
+
+  function toogleDisplay() {
+
+    if(event.target.id=="juniorTag"){
+      var x = document.getElementById("JuniorSchool");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        juniorTag.textContent="國中學校名單如下▼";
+        PrimaryTag.textContent="點這裡顯示國小(幼兒園)學校名單▲";
+        PrimarySchool.style.display = "none";
+      }  else {
+        x.style.display = "none";
+        juniorTag.textContent="點這裡顯示國中學校名單▲";
+      }
+    }
+
+
+    if(event.target.id=="PrimaryTag"){
+      var x = document.getElementById("PrimarySchool");
+      //alert(x);
+
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        PrimaryTag.textContent="國小(幼兒園)學校名單如下▼";
+        juniorTag.textContent="點這裡顯示國中學校名單▲";
+        JuniorSchool.style.display = "none";
+
+      }  else {
+        x.style.display = "none";
+        PrimaryTag.textContent="點這裡顯示國小(幼兒園)學校名單▲";
+      }
+    }
+  }
+
+
+  
+  //https://en.letswrite.tw/custom-google-form/
+  $(function() {
+  $('#submit').on('click', function() {
+  
+    
+   // 學校名稱
+    var SchoolName = $('#SchoolName').val();
+    if($("#SchoolName").val()==""){
+           alert("你尚未點選學校名稱");
+           $('#SchoolName').focus();
+           return;
+    }
+
+    // 填報人姓名
+    var ReportedPersonName = $('#ReportedPersonName').val() ;
+    if($("#ReportedPersonName").val()==""){
+           alert("你尚未填寫姓名");
+           $('#ReportedPersonName').focus();
+           return;
+    }
+
+    // 填報人姓名連絡電話
+    var PhoneNO = $('#PhoneNO').val() ;
+    if($("#PhoneNO").val()==""){
+           alert("你尚未填寫連絡電話");
+           $('#PhoneNO').focus();
+           return;
+    }
+
+
+    // 填報人姓名電子郵件
+    var Email = $('#Email').val() ;
+    if($("#Email").val()==""){
+           alert("你尚未填寫電子郵件");
+           $('#Email').focus();
+           return;
+    }
+
+    // 全校班級數
+    var ClassesAmt = $('#ClassesAmt').val() ;
+    if($("#Email").val()==""){
+           alert("你尚未填寫全校班級數");
+           $('#ClassesAmt').focus();
+           return;
+    }
+	
+    // 一年級學生人數
+    var Grade1StAmt = $('#Grade1StAmt').val() ;
+    if($("#Grade1StAmt").val()==""){
+           alert("你尚未填寫一年級學生人數");
+           $('#Grade1StAmt').focus();
+           return;
+    }
+
+    // 二年級學生人數
+    var Grade2StAmt = $('#Grade2StAmt').val() ;
+    if($("#Grade1StAmt").val()==""){
+           alert("你尚未填寫二年級學生人數");
+           $('#Grade2StAmt').focus();
+           return;
+    }
+
+
+    // 三年級學生人數
+    var Grade3StAmt = $('#Grade3StAmt').val() ;
+    if($("#Grade3StAmt").val()==""){
+           alert("你尚未填寫三年級學生人數");
+           $('#Grade3StAmt').focus();
+           return;
+    }
+
+    // 四年級學生人數
+    var Grade4StAmt = $('#Grade4StAmt').val() ;
+    if($("#Grade4StAmt").val()==""){
+           alert("你尚未填寫四年級學生人數");
+           $('#Grade4StAmt').focus();
+           return;
+    }
+
+    // 五年級學生人數
+    var Grade5StAmt = $('#Grade5StAmt').val() ;
+    if($("#Grade5StAmt").val()==""){
+           alert("你尚未填寫五年級學生人數");
+           $('#Grade5StAmt').focus();
+           return;
+    }
+
+    // 六年級學生人數
+    var Grade6StAmt = $('#Grade6StAmt').val() ;
+    if($("#Grade6StAmt").val()==""){
+           alert("你尚未填寫六年級學生人數");
+           $('#Grade6StAmt').focus();
+           return;
+    }
+ 
+     var GeneralClassPCAmt = $('#GeneralClassPCAmt').val() ;
+	 if($("#GeneralClassPCAmt").val()==""){
+           alert("你尚未填寫教室電腦數");
+           $('#GeneralClassPCAmt').focus();
+           return;
+    }
+
+     var AffairPCAmt = $('#AffairPCAmt').val() ;
+	 if($("#AffairPCAmt").val()==""){
+           alert("你尚未填寫行政電腦數");
+           $('#AffairPCAmt').focus();
+           return;
+    }
+
+     var ProjectorAmt = $('#ProjectorAmt').val() ;
+	 if($("#ProjectorAmt").val()==""){
+           alert("你尚未填寫單槍投影機數量");
+           $('#ProjectorAmt').focus();
+           return;
+    }
+	 
+     var ClassTchingScreen = $('#ClassTchingScreen').val() ;
+	 if($("#ClassTchingScreen").val()==""){
+           alert("你尚未填寫大屏顯示器數量");
+           $('#ClassTchingScreen').focus();
+           return;
+    }
+	 
+	 
+     var MobileDeviceAmt = $('#MobileDeviceAmt').val() ;
+	 if($("#MobileDeviceAmt").val()==""){
+           alert("你尚未填寫行動載具數量");
+           $('#MobileDeviceAmt').focus();
+           return;
+    }
+	 
+	 
+     var CurrentRation = $('#CurrentRation').val() ;
+	 if($("#CurrentRation").val()==""){
+           alert("你尚未填寫經常門預算比例");
+           $('#CurrentRation').focus();
+           return;
+    }
+
+     var CapitalRation = $('#CapitalRation').val() ;
+	 if($("#CapitalRation").val()==""){
+           alert("你尚未填寫資本門預算比例");
+           $('#CapitalRation').focus();
+           return;
+    }
+
+
+    //var SchAddress = $('#SchAddress').val() ;
+
+    var SchAddress = document.getElementById("SchAddress").innerHTML;   //將112年填報的學校地址送回hidden表單
+
+    //https://vocus.cc/article/63ac65f9fd897800017b7c3f
+
+     // 意見回饋
+     var Remark = $('#Remark').val() ;
+    //alert(Remark);
+ 
+ 
+    // 資料唯一識別碼 uuid https://github.com/eburtsev/jquery-uuid
+    var uuid = $.uuid() ;
+    //uuid = $.uuid() ;
+    //alert(uuid);
+
+    //document.getElementById("SchAddress").value= "";  	         //帶入學校地址資料
+	  //ocument.getElementById("SchAddress").value= SchAddress;  	 //帶入學校地址資料
+
+ 
+    // post
+    var data = {    
+      'entry.1187923727': uuid,
+      'entry.2049243288': SchoolName,
+      'entry.756787604': ReportedPersonName,
+      'entry.1932498509': PhoneNO,
+      'entry.1603285617': Email,
+      'entry.1988624849': ClassesAmt,
+      'entry.216831698': Grade1StAmt,    
+      'entry.1640086183': Grade2StAmt,    
+      'entry.1400971510': Grade3StAmt,    
+      'entry.800762325': Grade4StAmt,    
+      'entry.1729839341': Grade5StAmt,    
+      'entry.1364482378': Grade6StAmt,    
+      'entry.555138090': GeneralClassPCAmt,    
+      'entry.1025775579': AffairPCAmt,    
+      'entry.1109267981': ProjectorAmt,    
+      'entry.310939989': ClassTchingScreen,    
+      'entry.85321750': MobileDeviceAmt,    
+      'entry.1211044999': CurrentRation,    
+      'entry.1751401095': CapitalRation,    
+      'entry.2071940341': SchAddress,    
+      'entry.1890254262': Remark
+    };
+	console.log(data);
+    $.ajax({
+      type: 'POST',
+      url: 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdLDcKP2X_-2zVxLlZBfX915AtN6JsCvJ3jT1aiepihN7ziuA/formResponse',
+      data: data,
+      contentType: 'application/json',
+      dataType: 'jsonp',
+      complete: function() {
+        //alert('填報完成，謝謝您...');
+		//submit.style.backgroundColor ="#ffffff";
+		submit.style.fontSize = "25px";
+		submit.textContent="已完成！感謝您的填報！";
+		submit.disabled = true;	
+		
+		PDFGenerator.style.backgroundColor ="#ff0000";
+		PDFGenerator.style.fontSize = "20px";
+		PDFGenerator.style.color="#ffffff";
+		//PDFGenerator.style.height='40px';
+		//PDFGenerator.textContent="已完成！感謝您的填報！";
+		//PDFGenerator.disabled = true;	
+		
+	
+      }
+    });
+	document.getElementById("uuid_pdf").value= "";  	 //帶入資料的uuid值
+	document.getElementById("uuid_pdf").value= uuid;  	 //帶入資料的uuid值
+
+
+	var x = document.getElementById("PDFGenerator");
+	console.log(x.style.display);
+	if (x.style.display === "none") {
+        x.style.display = "block";
+    }  
+
+  });
+});
+
+$(document).on('click', '#btnClick', function(event){
+
+ 
+       var trigerObj=($(event.target));             //觸發按鈕的物件
+
+ 
+		
+      //https://api.jquery.com/each/        		//清除全部按鈕清除格式
+      $( btnClick ).each(function( index ) {
+        $(this).css("background", "white");
+        $(this).css("color","#d5dbd6" );
+        //$(this).prop('disabled', 'true');
+
+      });
+      trigerObj.css("background-color", "black");  //凸顯被按下的按鈕格式
+      trigerObj.css("color", "white");  
+	  
+
+	  
+	  var schSelectedName=event.target.textContent;  //學校名稱文字輸入欄
+    console.log(schSelectedName);
+    //document.getElementById("SchoolName").value=schSelectedName;  //學校名稱文字輸入欄
+
+    let el = document.getElementById("SchoolName");
+    el.value = schSelectedName;
+    el.dispatchEvent(new Event('input'));	
+	
+	let el2=document.getElementById("issuedData");
+	//var OriginalElmtHTML=el2.innerHTML;
+	//console.log("原始網頁碼是：%s",OriginalElmtHTML);
+	el2.innerHTML='';
+	el2.innerHTML='<span style=\'color:red\'>'+schSelectedName+'</span><br>'+navigator2;
+	
+	let el3=document.getElementById("surveyData");
+	el3.innerHTML='<span style=\'color:red\'>'+schSelectedName+'</span><br>'+navigator1;
+	
+
+	  
+	  document.getElementById("SchoolName").style.background= "black";  //被按下的學校名稱顯示黑底
+	  document.getElementById("SchoolName").style.color= "white";  //被按下的學校名稱顯示黑底	  
+
+	  //document.getElementById("SchoolName").css("color", "white");  		   ////被按下的學校名稱顯示白字
+	  
+  
+      //document.getElementById("btnClick").innerHTML+=`<button class="btn-outline-danger">${schSelectedName}</button>`;		    	  
+
+      JuniorSchool.style.display="none";
+      PrimarySchool.style.display="none";
+      var schNam=event.target.textContent;
+
+      QueryString(schNam);//查詢google sheet學校名稱
+      
+
+
+
+
+      //alert($("#btnClick").text());        
+       //$(this).prop('disabled', 'true');
+       //$('#').children().css("background", "yellow");
+       //$("#btnClick").css("background", "blue");
+      
+       });    
+</script>
+<style type="text/css">
+. {
+  position: relative;
+  width: 10%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; 
+}
+
+.
+</style> 
+</head>
+
+
+<body style="margin: 4%;">
+<div class="" id="app">
+
+  <h1 id="新竹縣114年度中小學資訊設備維護及運作費預算編列調查表" style="
+    border-bottom: 1px solid; text-align: center;font-size: 2.0em;font-family: Roboto, Noto Sans TC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    font-weight: bold;
+    line-height: 4.5;
+    margin: 30px 0 15px;
+    color:darkgreen;
+    line-height: 2;">新竹縣114年度中小學資訊設備維護及運作費預算編列調查表 2024.06.13
+  </h1>
+  <div class="row" style="border-style:dotted;">
+    <div class="twelve columns">
+        <p style="display: block;
+        margin: 20px;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 15px;
+        margin-inline-end: 15px;
+        line-height: 2;
+        font-family: Roboto, Noto Sans TC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        overflow-wrap: break-word;    
+        
+        unicode-bidi: isolate;">
+   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+  	<path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/>
+  	<path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/>
+   </svg>
+   <span style="font-size:20px;overflow-wrap:normal">為編列本縣「114年度中小學資訊設備維護及運作費預算」資料，請各校於113年6月21日（星期四）前填報本調查表」，俾利本局編列各校 資訊設備維護及運作費。
+   於填報資料輸入各項資料後，將系統產生的PDF檔核章後紙本，逕送(或郵寄)至教育局督學室</span>
+    <p span style=" text-align: right;font-size: 1.2em;">2024-06-13新竹縣政府教育局 李嘉彪 連絡電話：03-5518101分機2827</span>
+    </div>
+</div>
+
+<!------------------------------表單開頭-----------------------------
+
+  <!--步驟1 學校名稱-->
+<div>  <!--步驟1 -->
+ <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="position: absolute; top: 300px;z-index: 10;border-style:none;color:#0b56e0 ">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z"/>
+ </svg>
+</div>
+
+<div style="border-style:none;float: left;">
+<button id="juniorTag"  class="btnStyle btn-outline-danger" style="margin:10px" onclick="toogleDisplay()"><img src="images/school-svgrepo-com.SVG" style="width:19px;height:19px;">點這裡輸入國中學校名單▲</button>
+  </div>
+  <div style="border-style:none;float: left;">
+    <button id="PrimaryTag" class="btnStyle btn-outline-danger" style="margin:10px" onclick="toogleDisplay()"><img src="images/school-svgrepo-com.SVG" style="width:19px;height:19px;">點這裡輸入國小(幼兒園)學校名單▲</button>
+  </div>
+  
+<div>  <!--步驟2-->
+ <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-2-circle-fill" style="position: absolute; top: 300px;z-index:10;border-style:none;color:#0b56e0" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+ </svg><input id="SchoolName"  v-model="schName" type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" style="margin:10px;width:250px;maxlength=50; font-size:14pt;border-color:gray;border-width:3px" placeholder="點選選單帶入學校名稱">
+</div>
+<div id="JuniorSchool" style="display:none;">  
+  <div class="row"><div class="twelve column" style="color:red">點選學校名稱後，可由程式帶入112年資料，若找不到學校名稱，請於上方<span><b><u>欄位</u></b></span>自行輸入..)</div></div>
+  <button class="" id="btnClick">m01竹北國中</button>
+  <button class="" id="btnClick">m02六家高中(含國中部)</button>
+  <button class="" id="btnClick">m03鳳岡國中</button>
+  <button class="" id="btnClick">m04博愛國中</button>
+  <button class="" id="btnClick">m05仁愛國中</button>
+  <button class="" id="btnClick">m06竹東國中</button>
+  <button class="" id="btnClick">m07員東國中</button>
+  <button class="" id="btnClick">m08二重國中</button>
+  <button class="" id="btnClick">m09新埔國中</button>
+  <button class="" id="btnClick">m10照門國中</button>
+  <button class="" id="btnClick">m11關西國中</button>
+  <button class="" id="btnClick">m12石光國中</button>
+  <button class="" id="btnClick">m13富光國中</button>
+  <button class="" id="btnClick">m14湖口高中(含國中部)</button>
+  <button class="" id="btnClick">m15新湖國中</button>
+  <button class="" id="btnClick">m16中正國中</button>
+  <button class="" id="btnClick">m17新豐國中</button>
+  <button class="" id="btnClick">m18精華國中</button>
+  <button class="" id="btnClick">m19忠孝國中</button>
+  <button class="" id="btnClick">m20寶山國中</button>
+  <button class="" id="btnClick">m21莒光分部</button>
+  <button class="" id="btnClick">m22芎林國中</button>
+  <button class="" id="btnClick">m23橫山國中</button>
+  <button class="" id="btnClick">m24華山國中</button>
+  <button class="" id="btnClick">m25北埔國中</button>
+  <button class="" id="btnClick">m26峨眉國中</button>
+  <button class="" id="btnClick">m27尖石國中</button>
+  <button class="" id="btnClick">m28五峰國中</button>
+  <button class="" id="btnClick">m29自強國中</button>
+  <button class="" id="btnClick">m30東興國中</button>
+  <button class="" id="btnClick">m31成功國中</button>
+  <button class="" id="btnClick">m32北平華德福實驗學校(國中)
+  <button class="" id="btnClick">m33勝利國中</button>  
+  <button class="" id="btnClick">m34文興國中</button>    
+</div>
+
+<div id="PrimarySchool"  style="display:none;">  
+<div class="row"><div class="twelve column">點選學校名稱(若找不到學校名稱，請自行輸入..)</div></div>
+
+  <button class="" id="btnClick">p00竹仁國小</button>
+  <button class="" id="btnClick">p01竹北國小</button>
+  <button class="" id="btnClick">p02中正國小</button>
+  <button class="" id="btnClick">p03新社國小</button>
+  <button class="" id="btnClick">p04六家國小</button>
+  <button class="" id="btnClick">p05東海國小</button>
+  <button class="" id="btnClick">p06豐田國小</button>
+  <button class="" id="btnClick">p07麻園國小</button>
+  <button class="" id="btnClick">p08新港國小</button>
+  <button class="" id="btnClick">p09鳳岡國小</button>
+  <button class="" id="btnClick">p10博愛國小</button>
+  <button class="" id="btnClick">p11竹東國小</button>
+  <button class="" id="btnClick">p12大同國小</button>
+  <button class="" id="btnClick">p13陸豐國小</button>
+  <button class="" id="btnClick">p14中山國小</button>
+  <button class="" id="btnClick">p15員崠國小</button>
+  <button class="" id="btnClick">p16二重國小</button>
+  <button class="" id="btnClick">p17竹中國小</button>
+  <button class="" id="btnClick">p18瑞峰國小</button>
+  <button class="" id="btnClick">p19新埔國小</button>
+  <button class="" id="btnClick">p20新星國小</button>
+  <button class="" id="btnClick">p21照門國小</button>
+  <button class="" id="btnClick">p22清水國小</button>
+  <button class="" id="btnClick">p23照東國小</button>
+  <button class="" id="btnClick">p24枋寮國小</button>
+  <button class="" id="btnClick">p25寶石國小</button>
+  <button class="" id="btnClick">p26文山國小</button>
+  <button class="" id="btnClick">p27北平華德福實驗學校(國小)</button>
+  <button class="" id="btnClick">p28關西國小</button>
+  <button class="" id="btnClick">p29東安國小</button>
+  <button class="" id="btnClick">p30石光國小</button>
+  <button class="" id="btnClick">p31坪林國小</button>
+  <button class="" id="btnClick">p32南和國小</button>
+  <button class="" id="btnClick">p33太平國小</button>
+  <button class="" id="btnClick">p34東光國小</button>
+  <button class="" id="btnClick">p35錦山國小</button>
+  <button class="" id="btnClick">p36玉山國小</button>
+  <button class="" id="btnClick">p37新湖國小</button>
+  <button class="" id="btnClick">p38和興國小</button>
+  <button class="" id="btnClick">p39信勢國小</button>
+  <button class="" id="btnClick">p40湖口國小</button>
+  <button class="" id="btnClick">p41山崎國小</button>
+  <button class="" id="btnClick">p42長安國小</button>
+  <button class="" id="btnClick">p43中興國小</button>
+  <button class="" id="btnClick">p44華興國小</button>
+  <button class="" id="btnClick">p45新豐國小</button>
+  <button class="" id="btnClick">p46福興國小</button>
+  <button class="" id="btnClick">p47埔和國小</button>
+  <button class="" id="btnClick">p48瑞興國小</button>
+  <button class="" id="btnClick">p49福龍國小</button>
+  <button class="" id="btnClick">p50寶山國小</button>
+  <button class="" id="btnClick">p50a山湖分校</button>
+  <button class="" id="btnClick">p51新城國小</button>
+  <button class="" id="btnClick">p52雙溪國小</button>
+  <button class="" id="btnClick">p54芎林國小</button>
+  <button class="" id="btnClick">p55碧潭國小</button>
+  <button class="" id="btnClick">p56五龍國小</button>
+  <button class="" id="btnClick">p57橫山國小</button>
+  <button class="" id="btnClick">p58田寮國小</button>
+  <button class="" id="btnClick">p59大肚國小</button>
+  <button class="" id="btnClick">p60沙坑國小</button>
+  <button class="" id="btnClick">p61內灣國小</button>
+  <button class="" id="btnClick">p62北埔國小</button>
+  <button class="" id="btnClick">p63大坪多元智能生態美學實驗小學</button>
+  <button class="" id="btnClick">p64峨眉國小</button>
+  <button class="" id="btnClick">p65富興國小</button>
+  <button class="" id="btnClick">p66尖石國小</button>
+  <button class="" id="btnClick">p67嘉興國小</button>
+  <button class="" id="btnClick">p67a義興分校</button>
+  <button class="" id="btnClick">p68新樂國小</button>
+  <button class="" id="btnClick">p69梅花國小</button>
+  <button class="" id="btnClick">p70錦屏國小</button>
+  <button class="" id="btnClick">p71玉峰國小</button>
+  <button class="" id="btnClick">p72石磊國小</button>
+  <button class="" id="btnClick">p73秀巒國小</button>
+  <button class="" id="btnClick">p73a田埔分校  </button>
+  <button class="" id="btnClick">p74新光國小</button>
+  <button class="" id="btnClick">p75五峰國小</button>
+  <button class="" id="btnClick">p76桃山國小</button>
+  <button class="" id="btnClick">p77花園國小</button>
+  <button class="" id="btnClick">p77a竹林分校  </button>
+  <button class="" id="btnClick">p78光明國小</button>
+  <button class="" id="btnClick">p79上舘國小</button>
+  <button class="" id="btnClick">p80松林國小</button>
+  <button class="" id="btnClick">p81十興國小</button>
+  <button class="" id="btnClick">p82興隆國小</button>
+  <button class="" id="btnClick">p83東興國小</button>
+  <button class="" id="btnClick">p84安興國小</button>
+  <button class="" id="btnClick">p85嘉豐國小</button>
+<button class="" id="btnClick">p91上智國小</button>
+<button class="" id="btnClick">p92康乃薾中小學</button>
+<button class="" id="btnClick">k01竹東幼兒園</button>
+</div>
+
+
+<h1>
+<!---------------------------------------------------------------------->
+
+
+<!-------------------------------Navigator--------------------------------->
+
+<div style="border-style:none;">
+	<div style="overflow-wrap:normal;margin-left:0.1em;width:49%;height:80px;border-style:solid;float: left;text-align:center;background-color:#f7f7e9">
+    <div class="btn btn-outline-danger" style="overflow-wrap:normal;font-size:0.45em;font-weight:600;color:green">
+		  <img src="images/archive-fill.svg" style="color:red;width: 26px;height:26px;"><span id="surveyData" style="overflow-wrap:normal;">114年度中小學資訊設備維護及運作費預算調查表</span>
+	    </div>    
+  </div>
+  
+	<div>  <!--步驟3---->
+		<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-2-circle-fill" style="position: absolute;top:380px;left:975px;z-index:10;border-style:none;color:#0b56e0" viewBox="0 0 16 16">
+			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+		</svg><span style="font-size:14px;position: absolute;top:390px;left:1030px;z-index:10;border-style:none;color:#0b56e0" viewBox="0 0 16 16">自動帶入</span>
+	</div>  
+	<div style="width:49%;height:80px;border-style:solid;float:right;text-align:center;background-color:rgba(237,255,207,0.9);">
+      <div  class="btn btn-outline-danger" style="overflow-wrap:normal;font-size:0.55em;font-weight:600;color:rgba(255,0,0,0.3);">
+		  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-database" viewBox="0 0 16 16">
+			  <path d="M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313M13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A5 5 0 0 0 13 5.698M14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A5 5 0 0 0 13 8.698m0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525"/>
+		  </svg><span id="issuedData">113年已編列資訊設備維護費資料(參考用)</span>
+
+	  </div>  	  
+    </div>	
+	
+</div>
+
+
+
+<!----Column CENTER------------------------------------------------------------------------------------------------------------------------------>
+
+
+<!----Column LEFT------------------------------------------------------------------------------------------------------------------------------>
+<div>  <!--步驟4 -->
+ <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="position: absolute; top: 530px;left:40px;z-index: 10;border-style:none;color:#0b56e0 ">
+   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M7.519 5.057c-.886 1.418-1.772 2.838-2.542 4.265v1.12H8.85V12h1.26v-1.559h1.007V9.334H10.11V4.002H8.176zM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218"/>
+ </svg>
+</div>
+
+<div id="o114Survey" style="display:solid;width:49%;border-width:2px;border-style:solid;margin:0.5rem;float:left;background-color:#f7f7e9">
+
+<!--項目2 填報人姓名-->
+<div class="row">
+    <button class="btnStyle btn-outline-danger" style="margin-bottom:10px;width:168px;height:50px;text-align: left;cursor:default">填報人姓名<span style="color:red">*</span> </button>
+    <input id=ReportedPersonName type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" style="margin-top:10px;margin-bottom:10px;width:300px;height:50px" maxlength="12" placeholder="輸入姓名">
+</div>
+
+<!--項目3 填報人聯絡電話-->
+<div class="row">
+    <button class="btnStyle btn-outline-danger" style="margin-top:0px;width:168px;height:50px;text-align:left;cursor:default">填報人電話<span style="color:red">*</span> </button>
+    <input id=PhoneNO type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="20" style="margin-top:10px;margin-bottom:10px;width:300px;height:50px;font-size:28px">    
+</div>
+<!--項目4 填報人電子郵件-->
+<div class="row">
+    <button class="btnStyle btn-outline-danger" style="margin-top:0px;width:185px;height:50px;text-align: left;cursor:default">填報人電子郵件:<span style="color:red">*</span> </button>
+    <input id=Email type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="60" style="margin-top:10px;margin-bottom:5px;width:300px;height:50px;font-size:28px">
+</div>
+<!--項目5 113學年度班級數-->
+<div class="row">
+  <button class="btnStyle btn-outline-danger" style="line-height:20px;width:295px;height:60px;text-align: left;">113學年度預估全校班級數(不含特教班)
+ <span style="color:red">*</span> </button>
+    <input id=ClassesAmt type="number" min="0" max="90" v-model.number=classAmt class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:7px;margin-bottom:1px;width:90px;height:60px">
+	</div>
+
+
+  <!--項目 一年級(七年級)人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-1-square" viewBox="0 0 16 16" color="green">
+		  <path d="M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+		  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>113學年度一年級(七年級)學生人數：<span id="S114Grade1"></span>
+		<input type=number id=Grade1StAmt  min="0" max="900" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:2px;margin-bottom:1px;width:80px;height:30px;font-size:20px">
+	</div>
+	<!--項目 二年級(八年級)人數-->
+	<div class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>113學年度二年級(八年級)學生人數：<span id="S114Grade2"></span>
+		<input id=Grade2StAmt type="number"   min="0" max="900" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:2px;margin-bottom:1px;width:80px;height:30px;font-size:20px">
+
+	</div>
+	
+	<!--項目 三年級(九年級)人數-->
+	<div class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>113學年度三年級(九年級)學生人數：<span  id="S114Grade3"></span>
+		<input id=Grade3StAmt type="number"   min="0" max="900" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:2px;margin-bottom:1px;width:80px;height:30px;font-size:20px">
+
+	</div>
+	
+	<!--項目 四年級人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M7.519 5.057q.33-.527.657-1.055h1.933v5.332h1.008v1.107H10.11V12H8.85v-1.559H4.978V9.322c.77-1.427 1.656-2.847 2.542-4.265ZM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>113學年度四年級學生人數：<span id="S114Grade4"></span>
+		<input id=Grade4StAmt type="number"   min="0" max="900" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:2px;margin-bottom:1px;width:80px;height:30px;font-size:20px">
+		
+	</div>
+	
+	<!--項目 五年級人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M7.994 12.158c-1.57 0-2.654-.902-2.719-2.115h1.237c.14.72.832 1.031 1.529 1.031.791 0 1.57-.597 1.57-1.681 0-.967-.732-1.57-1.582-1.57-.767 0-1.242.45-1.435.808H5.445L5.791 4h4.705v1.103H6.875l-.193 2.343h.064c.17-.258.715-.68 1.611-.68 1.383 0 2.561.944 2.561 2.585 0 1.687-1.184 2.806-2.924 2.806Z"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>113學年度五年級學生人數：<span id="S114Grade5"></span>
+		<input id=Grade5StAmt type="number"   min="0" max="900" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:2px;margin-bottom:1px;width:80px;height:30px;font-size:20px">
+	</div>
+
+	<!--項目 六年級人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M8.21 3.855c1.612 0 2.515.99 2.573 1.899H9.494c-.1-.358-.51-.815-1.312-.815-1.078 0-1.817 1.09-1.805 3.036h.082c.229-.545.855-1.155 1.98-1.155 1.254 0 2.508.88 2.508 2.555 0 1.77-1.218 2.783-2.847 2.783-.932 0-1.84-.328-2.409-1.254-.369-.603-.597-1.459-.597-2.642 0-3.012 1.248-4.407 3.117-4.407Zm-.099 4.008c-.92 0-1.564.65-1.564 1.576 0 1.032.703 1.635 1.558 1.635.868 0 1.553-.533 1.553-1.629 0-1.06-.744-1.582-1.547-1.582"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度六年級學生人數：<span id="S114Grade6"></span>
+		<input id=Grade6StAmt type="number"   min="0" max="900" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:2px;margin-bottom:1px;width:80px;height:30px;font-size:20px">
+	</div>
+	
+	<!--項目 112學年度班級教室電腦總數-->
+	<div class="row" >
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:20px;width:295px;height:60px;text-align: left;">112學年度班級教室電腦總數<span style="font-size:12px">(請依一般教學教室數統計，不含專科教室)</span>
+		<span style="color:red">*</span> </button>
+		<input id=GeneralClassPCAmt type="number" min="0" max="999" v-model.number=GeneralClassPCAmt class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:10px;margin-bottom:1px;width:90px;height:60px">
+	</div>
+	
+    
+
+	<!--項目 112學年行政電腦總數-->
+	<div class="row">
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:25px;width:295px;height:60px;text-align: left">112學年度行政人員「使用中」電腦總數<span style="font-size:12px"></span>
+		<span style="color:red">*</span> </button>
+		<input id=AffairPCAmt type="number" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:7px;margin-bottom:1px;width:90px;height:60px">
+	</div>
+	<!--項目 112學年度校內「使用中」的單槍投影機總數-->
+	<div class="row">
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:25px;width:295px;height:60px;text-align: left">112學年度校內「使用中」單槍投影機總數<span style="font-size:12px"></span>
+		<span style="color:red">*</span> </button>
+		<input id=ProjectorAmt type="number" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:7px;margin-bottom:1px;width:90px;height:60px">
+	</div>
+	<!--項目 112學年度校內「使用中」的大屏顯示器總數-->
+	<div class="row">
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:25px;width:295px;height:60px;text-align: left">112學年度校內「使用中」大屏顯示器總數<span style="font-size:12px"></span>
+		<span style="color:red">*</span> </button>
+		<input id=ClassTchingScreen type="number" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="3" style="margin-left:1px;margin-top:7px;margin-bottom:1px;width:90px;height:60px;">
+	</div>
+	<!--項目 112學年度校內「使用中」的行動載具總數 (含平板、教學用筆記型電腦)-->
+	<div class="row">
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:25px;width:295px;height:90px;text-align: left">112學年度校內「使用中」的行動載具總數 (含平板、教學用筆電)<span style="color:red">*</span> </button>
+		<input id=MobileDeviceAmt type="number" name='entry.999999' class="TextFormStyle btn-outline-danger" maxlength="40" style="margin-top:10px;margin-bottom:0px;width:90px;height:90px;">
+	</div>
+	<!--項目 貴校113年度(113年1月1日至 113年12月31日止)，預計分配資訊設備維護及運作費預算「經常門」的比例-->
+	<div class="row">
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:25px;width:295px;height:105px;text-align: left">113年度(113年1月1日至 113年12月31日止)，預計分配資訊設備維護及運作費預算<span style="color:red">經常門</span>的比例<span style="color:red">*</span> </button>
+		<input type=number min="1" max="100" inputmode="numeric"  pattern="/d+" id=CurrentRation v-model.number=Currents  maxlength=3 class="TextFormStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;width:200px;height:105px" placeholder="輸入經常門%">
+	</div>
+	<!--項目 貴校113年度(113年1月1日至 113年12月31日止)，預計分配資訊設備維護及運作費預算「資本門」的比例-->
+	<div class="row">
+		<button class="btnStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;line-height:25px;width:295px;height:105px;text-align: left">113年度(113年1月1日至 113年12月31日止)，預計分配資訊設備維護及運作費預算<span style="color:red">資本門</span>的比例<span style="color:red">*</span> 
+		</button>
+		<input type=number min="1" max="100" inputmode="numeric"  pattern="/d+" id=CapitalRation v-model.number=Capitals  maxlength=3 class="TextFormStyle btn-outline-danger" style="margin-top:10px;margin-bottom:0px;width:200px;height:105px" placeholder="輸入資本門%">
+		
+	</div>
+	
+<!--項目6  填報備註-->
+<div class="row">
+    <div class="two columns">
+      <button type="button" class="btnStyle" style="margin-top:10px;margin-bottom:0px;">填報備註</button>
+    </div>  
+    <div class="row">
+        <div class="twelve"><textarea id=Remark rows="3"  class="TextareaFormStyle" style="-webkit-user-select:text !important" contenteditable="true" ></textarea></div>
+	</div>
+</div>	
+
+
+</div>
+
+
+	
+    
+<!-- <div class="" id="app"> -->
+  <!--https://ithelp.ithome.com.tw/articles/10214750?sc=rss.iron 
+
+  https://ithelp.ithome.com.tw/articles/10198961
+  https://stackoverflow.com/questions/40759731/how-to-call-vue-instance-outside-it-in-javascript
+  how-to-call-vue-instance-outside-it-in-javascript-->
+
+  <!-- inline css setting https://vuejs.org/guide/essentials/class-and-style.html   -->
+
+      <div id="transition" class="double-wrap" :class="{ hide: !loading }">
+        <div class="double">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
+      </div>
+
+<!-- </div>	 -->
+
+<!----Column RIGHT------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="o112issued" style="margin-top:5px;margin-left:2px;display:solid;width:49%;border-width: 2px;border-style: solid;float:right;background-color:#edffcf">
+	<!--項目 全校總人數-->
+<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin:0.5em;color:rgba(0,0,0,0.4);">
+	<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-database" viewBox="0 0 16 16">
+		<path d="M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313M13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A5 5 0 0 0 13 5.698M14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A5 5 0 0 0 13 8.698m0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525"/>
+	</svg>112學年度學生總人數：	<span id="stTotalAmount"></span>(參考全誼系統113年6月資料)
+</div>
+	
+
+<div id="stInfo" style="display:none;background:transparent ;margin-left:0em;">
+	
+	<!--項目 一年級(七年級)人數-->	
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-1-square" viewBox="0 0 16 16" color="green">
+		  <path d="M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+		  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度一年級(七年級)學生人數：<span id="Grade1"></span>
+	</div>
+	
+	<!--項目 二年級(八年級)人數-->
+	<div class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度二年級(八年級)學生人數：<span id="Grade2"></span>
+	</div>
+	
+	<!--項目 三年級(九年級)人數-->
+	<div class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度三年級(九年級)學生人數：<span  id="Grade3"></span>
+	</div>
+	
+	<!--項目 四年級人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M7.519 5.057q.33-.527.657-1.055h1.933v5.332h1.008v1.107H10.11V12H8.85v-1.559H4.978V9.322c.77-1.427 1.656-2.847 2.542-4.265ZM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度四年級學生人數：<span id="Grade4"></span>
+	</div>
+	
+	<!--項目 五年級人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M7.994 12.158c-1.57 0-2.654-.902-2.719-2.115h1.237c.14.72.832 1.031 1.529 1.031.791 0 1.57-.597 1.57-1.681 0-.967-.732-1.57-1.582-1.57-.767 0-1.242.45-1.435.808H5.445L5.791 4h4.705v1.103H6.875l-.193 2.343h.064c.17-.258.715-.68 1.611-.68 1.383 0 2.561.944 2.561 2.585 0 1.687-1.184 2.806-2.924 2.806Z"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度五年級學生人數：<span id="Grade5"></span>
+	</div>
+
+	<!--項目 六年級人數-->
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16"  color="green">
+			<path d="M8.21 3.855c1.612 0 2.515.99 2.573 1.899H9.494c-.1-.358-.51-.815-1.312-.815-1.078 0-1.817 1.09-1.805 3.036h.082c.229-.545.855-1.155 1.98-1.155 1.254 0 2.508.88 2.508 2.555 0 1.77-1.218 2.783-2.847 2.783-.932 0-1.84-.328-2.409-1.254-.369-.603-.597-1.459-.597-2.642 0-3.012 1.248-4.407 3.117-4.407Zm-.099 4.008c-.92 0-1.564.65-1.564 1.576 0 1.032.703 1.635 1.558 1.635.868 0 1.553-.533 1.553-1.629 0-1.06-.744-1.582-1.547-1.582"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112學年度六年級學生人數：<span id="Grade6"></span>
+	</div>
+
+</div>
+
+	<!--項目 112學年度教室電腦、行政電腦、單槍投影機數量-->
+	
+	<div id="" class="btn btn-outline-danger" style="white-space: normal;display:solid;font-size:0.35em;font-weight:600;margin:0.5em;color:rgba(255,126,39,0.4)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-laptop-fill" viewBox="0 0 16 16">
+			<path d="M2.5 2A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5"/>
+		</svg>112年度教室電腦、行政電腦、單槍投影機數量(上一年填報資料)
+  </div>
+  <div id="deviceAmt" class="btn btn-outline-danger" style="white-space: normal;display:none;font-weight:600;margin-left:0em;">
+
+	<!--項目 112年教室電腦數-->	
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-1-square" viewBox="0 0 16 16" color="#ff7e27">
+		  <path d="M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z"/>
+		  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112年教室電腦數：<span id="ClassesPCAmount"></span>
+	</div>
+	
+	<!--項目 112年行政電腦數-->	
+	<div  class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16" color="#ff7e27">
+			<path d="M6.646 6.24v.07H5.375v-.064c0-1.213.879-2.402 2.637-2.402 1.582 0 2.613.949 2.613 2.215 0 1.002-.6 1.667-1.287 2.43l-.096.107-1.974 2.22v.077h3.498V12H5.422v-.832l2.97-3.293c.434-.475.903-1.008.903-1.705 0-.744-.557-1.236-1.313-1.236-.843 0-1.336.615-1.336 1.306"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112年行政電腦數：<span  id="AffairPCAmount"></span>
+	</div>	
+	
+	<!--項目 112年單槍投影機數-->
+	<div class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:2.0em;background: rgba(204, 204, 204, 0.2)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-square" viewBox="0 0 16 16" color="#ff7e27">
+			<path d="M7.918 8.414h-.879V7.342h.838c.78 0 1.348-.522 1.342-1.237 0-.709-.563-1.195-1.348-1.195-.79 0-1.312.498-1.348 1.055H5.275c.036-1.137.95-2.115 2.625-2.121 1.594-.012 2.608.885 2.637 2.062.023 1.137-.885 1.776-1.482 1.875v.07c.703.07 1.71.64 1.734 1.917.024 1.459-1.277 2.396-2.93 2.396-1.705 0-2.707-.967-2.754-2.144H6.33c.059.597.68 1.06 1.541 1.066.973.006 1.6-.563 1.588-1.354-.006-.779-.621-1.318-1.541-1.318"/>
+			<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+		</svg>112年單槍投影機數：<span  id="Projector"></span>
+	</div>
+  </div>
+  
+	<div id="" class="btn btn-outline-danger" style="white-space: normal;font-size:0.35em;font-weight:600;margin:0.7em;color:rgba(63,72,202,0.3)">
+		<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-aspect-ratio" viewBox="0 0 16 16" color=rgba(63,72,202,0.3)>
+			<path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
+			<path d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0z"/>
+		</svg>112年度經常門、資本門經費比例(上一年填報資料)
+	</div>
+
+	<div class="row" style="margin:0.6rem">
+		<!--項目 112年經常門經費百分比-->
+		<div class="five columns"> <button type="button" class="btnStyle" style="background-Color:rgba(63,72,202,0.3);margin-left:2.0em">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-coin" viewBox="0 0 16 16">
+			<path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
+			<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+			<path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+			</svg>112年經常門<span id="CurrentAccount"></span></button> 
+		</div>
+	
+		<!--項目 112年資本門經費百分比-->
+		<div class="five columns"> <button type="button" class="btnStyle" style="margin-left:50px;background-Color:rgba(63,72,202,0.3)">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-coin" viewBox="0 0 16 16">
+			<path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
+			<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+			<path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+			</svg>112年資本門<span id="CapitalAccount"></span></button>
+		</div>
+	</div>	
+  <div class="row" style="margin:0.6rem">
+		<!--項目 學校地址-->
+		<div class="btn btn-outline-danger" style="font-size:0.35em;font-weight:600;margin-left:0.5em;background: rgba(204, 204, 204, 0.2)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+      </svg>學校地址：<span  id="SchAddress"></span>
+	</div>
+  
+
+  </div>
+</div>
+</div>                 <!-- 112 issued-->
+
+<!--</div>				   <!-- class container-->
+
+
+		
+		
+		
+
+<!--送出表單資料-->
+<div class="row">
+
+<div>  <!--步驟5 -->
+ <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="position: absolute; top: 1800px;left:40px;z-index: 10;border-style:none;color:#0b56e0 ">
+	<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.006 4.158c1.74 0 2.924-1.119 2.924-2.806 0-1.641-1.178-2.584-2.56-2.584-.897 0-1.442.421-1.612.68h-.064l.193-2.344h3.621V4.002H5.791L5.445 8.63h1.149c.193-.358.668-.809 1.435-.809.85 0 1.582.604 1.582 1.57 0 1.085-.779 1.682-1.57 1.682-.697 0-1.389-.31-1.53-1.031H5.276c.065 1.213 1.149 2.115 2.72 2.115Z"/>
+	<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.006 4.158c1.74 0 2.924-1.119 2.924-2.806 0-1.641-1.178-2.584-2.56-2.584-.897 0-1.442.421-1.612.68h-.064l.193-2.344h3.621V4.002H5.791L5.445 8.63h1.149c.193-.358.668-.809 1.435-.809.85 0 1.582.604 1.582 1.57 0 1.085-.779 1.682-1.57 1.682-.697 0-1.389-.31-1.53-1.031H5.276c.065 1.213 1.149 2.115 2.72 2.115Z"/>
+ </svg>
+</div>
+
+    <div class="twelve columns">
+      <button id="submit" class="btnStyle" style="background-color: cornflowerblue;cursor:hand">送出
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
+             <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"/>
+            <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+        </svg>
+      </button>
+
+	   <button id='PDFGenerator' class=" " style="white-space: nowrap;line-height:23px;display:none;align:center" onClick="CreatePDF_UUID()">
+	   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
+		<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+		<path d="M4.603 14.087a.8.8 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.7 7.7 0 0 1 1.482-.645 20 20 0 0 0 1.062-2.227 7.3 7.3 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a11 11 0 0 0 .98 1.686 5.8 5.8 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.86.86 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.7 5.7 0 0 1-.911-.95 11.7 11.7 0 0 0-1.997.406 11.3 11.3 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.8.8 0 0 1-.58.029m1.379-1.901q-.25.115-.459.238c-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361q.016.032.026.044l.035-.012c.137-.056.355-.235.635-.572a8 8 0 0 0 .45-.606m1.64-1.33a13 13 0 0 1 1.01-.193 12 12 0 0 1-.51-.858 21 21 0 0 1-.5 1.05zm2.446.45q.226.245.435.41c.24.19.407.253.498.256a.1.1 0 0 0 .07-.015.3.3 0 0 0 .094-.125.44.44 0 0 0 .059-.2.1.1 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a4 4 0 0 0-.612-.053zM8.078 7.8a7 7 0 0 0 .2-.828q.046-.282.038-.465a.6.6 0 0 0-.032-.198.5.5 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822q.036.167.09.346z"/>
+		</svg>請點這裡生成待核章的PDF檔<input type=hidden id=uuid_pdf><input type=hidden id=svSchAddress>
+	   </button><a id=link href="#" style="display:none;">(點這裡下載)</a></span>
+	   
+	   
+	   
+	   <button class=" " style="text-display: flex;align-items: center" onClick="window.open('ListReported.htm');">
+	   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+		 <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+		 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+	   </svg> <span style="text-display: flex;align-items: center;height:300px">各校填報狀況，請點這裡</span>
+	   </button>   
+   
+
+	 </div>  
+    
+ </div>
+ 
+ <!--送出表單資料 END-->
+ 
+</div> <!-- id=app -->
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+<script src="js/main.min.js"></script>
+<script src="js/stringQueryFill.js"></script>
+</body>
+</html>
