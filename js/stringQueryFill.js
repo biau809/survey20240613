@@ -7,7 +7,7 @@ function QueryString(qStr){
 
     const val=qStr;
     const url_parameter=`${url}?SchoolName=${val}`;
-    //console.log('click');
+    console.log('click');
     console.log(url_parameter);
 
 	console.log("transition effect active")
