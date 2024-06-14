@@ -386,7 +386,7 @@ $(document).on('click', '#btnClick', function(event){
   	<path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/>
    </svg>
    <span style="font-size:20px;overflow-wrap:normal">為編列本縣「114年度中小學資訊設備維護及運作費預算」資料，請各校於113年6月21日（星期四）前填報本調查表，俾利本局編列各校 資訊設備維護及運作費。
-   於填報資料輸入各項資料後，將系統產生的PDF檔正本核章後，逕送(或郵寄)至教育局督學室</span>
+   於填報各項資料後，將系統產生的PDF檔正本核章後，逕送(或郵寄)至教育局督學室</span>
     <p span style=" text-align: right;font-size: 1.2em;">2024-06-13新竹縣政府教育局 李嘉彪 連絡電話：03-5518101分機2827</span>
     </div>
 </div>
@@ -410,7 +410,10 @@ $(document).on('click', '#btnClick', function(event){
 <div>  <!--步驟2-->
  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-2-circle-fill" style="position: absolute; top: 300px;z-index:10;border-style:none;color:#0b56e0" viewBox="0 0 16 16">
   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
- </svg><input id="SchoolName"  v-model="schName" type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" style="margin:10px;width:250px;maxlength=50; font-size:14pt;border-color:gray;border-width:3px" placeholder="點選選單帶入學校名稱">
+ </svg>
+ <input id="SchoolName"  v-model="schName" type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" style="margin:10px;width:250px;maxlength=50; font-size:14pt;border-color:gray;border-width:3px" placeholder="點選選單帶入學校名稱">
+ <input id="UUID_Reported" v-model="ReportedUUID" @input="limitUUIDIdLen(ReportedUUID)" type="text" name='entry.999999' class="TextFormStyle btn-outline-danger" style="margin:10px;width:250px;maxlength=50; font-size:14pt;border-color:gray;border-width:3px" placeholder="或已填報之文件36位數UUID值"> 
+ 
 </div>
 <div id="JuniorSchool" style="display:none;">  
   <div class="row"><div class="twelve column" style="color:red">點選學校名稱後，可由程式帶入112年資料，若找不到學校名稱，請於上方<span><b><u>欄位</u></b></span>自行輸入..)</div></div>
@@ -916,7 +919,7 @@ $(document).on('click', '#btnClick', function(event){
 		<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
 		<path d="M4.603 14.087a.8.8 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.7 7.7 0 0 1 1.482-.645 20 20 0 0 0 1.062-2.227 7.3 7.3 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a11 11 0 0 0 .98 1.686 5.8 5.8 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.86.86 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.7 5.7 0 0 1-.911-.95 11.7 11.7 0 0 0-1.997.406 11.3 11.3 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.8.8 0 0 1-.58.029m1.379-1.901q-.25.115-.459.238c-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361q.016.032.026.044l.035-.012c.137-.056.355-.235.635-.572a8 8 0 0 0 .45-.606m1.64-1.33a13 13 0 0 1 1.01-.193 12 12 0 0 1-.51-.858 21 21 0 0 1-.5 1.05zm2.446.45q.226.245.435.41c.24.19.407.253.498.256a.1.1 0 0 0 .07-.015.3.3 0 0 0 .094-.125.44.44 0 0 0 .059-.2.1.1 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a4 4 0 0 0-.612-.053zM8.078 7.8a7 7 0 0 0 .2-.828q.046-.282.038-.465a.6.6 0 0 0-.032-.198.5.5 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822q.036.167.09.346z"/>
 		</svg>請點這裡生成待核章的PDF檔<input type=hidden id=uuid_pdf><input type=hidden id=svSchAddress>
-	   </button><a id=link href="#" style="display:none;">(點這裡下載)</a></span>
+	   </button><a id=link href="#" style="display:none;">(點這裡下載)</a>
 	   
 	   
 	   
@@ -940,5 +943,6 @@ $(document).on('click', '#btnClick', function(event){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
 <script src="js/main.min.js"></script>
 <script src="js/stringQueryFill.js"></script>
+<script src="js/mendByUUID.js"></script>
 </body>
 </html>
