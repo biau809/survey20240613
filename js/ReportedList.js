@@ -1,5 +1,6 @@
 //const url='https://script.google.com/macros/s/AKfycbxpv00JQLhKWnIWzn8QtWX1s0mrjkThBp-Yj2bTJXPLCJKf2V-scVtw-0EJINIA4PJ3Rw/exec';
-const url='https://script.google.com/macros/s/AKfycbwHAylgCnPzn7qsDkPx4Be_-kZxQkVrAHmC6Neza33O9i9GLvPZ8_LbkmyMC0Tucfl1Tw/exec';
+//const url='https://script.google.com/macros/s/AKfycbwHAylgCnPzn7qsDkPx4Be_-kZxQkVrAHmC6Neza33O9i9GLvPZ8_LbkmyMC0Tucfl1Tw/exec';
+const url='https://script.google.com/macros/s/AKfycbzlb2DPDCtYanbmKRia3JPaU5FoKaHgHcN3t8Vr-3C3UdTMb8zcOWN7wn4o2p6oLriCQA/exec';
 
 
 function QueryString(qStr){
@@ -37,6 +38,9 @@ function QueryString(qStr){
             	document.getElementById("ReportList").innerHTML+=`<button class="btn-outline-danger">${i}</button>`;		    
 	console.log(data);				
              	document.getElementById("ReportList").innerHTML+=`<button class="btn-outline-danger">${data[i].SchoolName}</button>&nbsp;&nbsp<button>${data[i].DateTime}</button><br>`;  //帶入填報人姓名        
+
+             	document.getElementById("ReportList").innerHTML+=`<button class="btn-outline-danger">${data[i].SchoolName}</button>&nbsp;&nbsp<button>${data[i].PaperDelivered}</button><br>`;  //收到紙本
+				
 				
 	   }
 	   
