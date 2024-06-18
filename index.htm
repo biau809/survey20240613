@@ -557,40 +557,46 @@ $(document).on('click', '#btnClick', function(event){
 
 <!-------------------------------Navigator--------------------------------->
 
-<div style="border-style:none;">
-	<div style="overflow-wrap:normal;margin-left:0.1em;width:49%;height:80px;border-style:solid;float: left;text-align:center;background-color:#f7f7e9">
-    <div class="btn btn-outline-danger" style="overflow-wrap:normal;font-size:0.45em;font-weight:600;color:green">
+<!----Column LEFT------------------------------------------------------------------------------------------------------------------------------>
+
+  <div style="border-style:none;">
+   	<div style="position: relative;top:0px;left:0px;z-index:50">
+	 <div style="overflow-wrap:normal;margin-left:0.1em;width:49%;height:80px;border-style:solid;float: left;text-align:center;background-color:#f7f7e9">
+		<div class="btn btn-outline-danger" style="overflow-wrap:normal;font-size:0.45em;font-weight:600;color:green">
 		  <img src="images/archive-fill.svg" style="color:red;width: 26px;height:26px;"><span id="surveyData" style="overflow-wrap:normal;">114年度中小學資訊設備維護及運作費預算調查表</span>
 	    </div>    
-  </div>
+	    <div style="border-style:none;position: relative;top:-40px;left:0px;z-index:50;width:50px;height:50px;">  <!--步驟4 -->
+		 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="position: relative; top: 0px;left:0px;z-index: 10;border-style:none;color:#0b56e0 ">
+			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M7.519 5.057c-.886 1.418-1.772 2.838-2.542 4.265v1.12H8.85V12h1.26v-1.559h1.007V9.334H10.11V4.002H8.176zM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218"/>
+		 </svg>
+	    </div>			
+     </div>
+	</div>
   
-	<div>  <!--步驟3---->
-		<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-2-circle-fill" style="position: absolute;top:380px;left:975px;z-index:10;border-style:none;color:#0b56e0" viewBox="0 0 16 16">
-			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
-		</svg><span style="font-size:14px;position: absolute;top:390px;left:1030px;z-index:10;border-style:none;color:#0b56e0" viewBox="0 0 16 16">自動帶入</span>
-	</div>  
+	<div style="position: relative;top:0px;left:0px;z-index:50">
 	<div style="width:49%;height:80px;border-style:solid;float:right;text-align:center;background-color:rgba(237,255,207,0.9);">
       <div  class="btn btn-outline-danger" style="overflow-wrap:normal;font-size:0.55em;font-weight:600;color:rgba(255,0,0,0.3);">
 		  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-database" viewBox="0 0 16 16">
 			  <path d="M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313M13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A5 5 0 0 0 13 5.698M14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A5 5 0 0 0 13 8.698m0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525"/>
 		  </svg><span id="issuedData">113年已編列資訊設備維護費資料(參考用)</span>
-
 	  </div>  	  
+    <div style="position: relative;top:-40px;left:-10px;z-index:20;border-style:none;border-color:red;width:50px;height:50px">  <!--步驟3---->
+		<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-2-circle-fill" style="border-style:none;color:#0b56e0" viewBox="0 0 16 16">
+			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+		</svg><div style="position: relative;top:0px;left:-20px;z-index:10;border-style:none;width:150px;font-size:14px;color:#0b56e0" viewBox="0 0 16 16">自動帶入資料</div>
+	</div>  
+		  
+	  
     </div>	
+	</div>
+	
 	
 </div>
 
 
 
-<!----Column CENTER------------------------------------------------------------------------------------------------------------------------------>
-
 
 <!----Column LEFT------------------------------------------------------------------------------------------------------------------------------>
-<div>  <!--步驟4 -->
- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="position: absolute; top: 530px;left:40px;z-index: 10;border-style:none;color:#0b56e0 ">
-   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M7.519 5.057c-.886 1.418-1.772 2.838-2.542 4.265v1.12H8.85V12h1.26v-1.559h1.007V9.334H10.11V4.002H8.176zM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218"/>
- </svg>
-</div>
 
 <div id="o114Survey" style="display:solid;width:49%;border-width:2px;border-style:solid;margin:0.5rem;float:left;background-color:#f7f7e9">
 
@@ -898,37 +904,50 @@ $(document).on('click', '#btnClick', function(event){
 
 <!--送出表單資料-->
 <div class="row">
-
-<div>  <!--步驟5 -->
- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="position: absolute; top: 1800px;left:40px;z-index: 10;border-style:none;color:#0b56e0 ">
-	<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.006 4.158c1.74 0 2.924-1.119 2.924-2.806 0-1.641-1.178-2.584-2.56-2.584-.897 0-1.442.421-1.612.68h-.064l.193-2.344h3.621V4.002H5.791L5.445 8.63h1.149c.193-.358.668-.809 1.435-.809.85 0 1.582.604 1.582 1.57 0 1.085-.779 1.682-1.57 1.682-.697 0-1.389-.31-1.53-1.031H5.276c.065 1.213 1.149 2.115 2.72 2.115Z"/>
-	<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.006 4.158c1.74 0 2.924-1.119 2.924-2.806 0-1.641-1.178-2.584-2.56-2.584-.897 0-1.442.421-1.612.68h-.064l.193-2.344h3.621V4.002H5.791L5.445 8.63h1.149c.193-.358.668-.809 1.435-.809.85 0 1.582.604 1.582 1.57 0 1.085-.779 1.682-1.57 1.682-.697 0-1.389-.31-1.53-1.031H5.276c.065 1.213 1.149 2.115 2.72 2.115Z"/>
- </svg>
-</div>
-
     <div class="twelve columns">
+	
+	  
+	  
+	  <div style="position:relative;top:0px;left:0px;z-index:160;border-style:none;border-color:red;width:768px;height:250px">  
+    <div style="position:relative;top:0px;left:0px;border-style:none;border-color:yellow;width:50px;height:50px">  
       <button id="submit" class="btnStyle" style="background-color: cornflowerblue;cursor:hand">送出
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-check" viewBox="0 0 16 16">
              <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372zm-2.54 1.183L5.93 9.363 1.591 6.602z"/>
-            <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
+             <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686"/>
         </svg>
       </button>
+	  
+	  <div style="position:relative;top:-135px;left:0px;z-index:160;border-style:none;border-color:green;width:50px;height:50px">  <!--步驟5 -->
+		  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16" style="border-style:none;color:#0b56e0 ">
+			<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-8.006 4.158c1.74 0 2.924-1.119 2.924-2.806 0-1.641-1.178-2.584-2.56-2.584-.897 0-1.442.421-1.612.68h-.064l.193-2.344h3.621V4.002H5.791L5.445 8.63h1.149c.193-.358.668-.809 1.435-.809.85 0 1.582.604 1.582 1.57 0 1.085-.779 1.682-1.57 1.682-.697 0-1.389-.31-1.53-1.031H5.276c.065 1.213 1.149 2.115 2.72 2.115Z"/>
+		  </svg>
+	  </div>
+
+	  <div style="position:relative;top:-50px;left:0px;z-index:160;border-style:none;border-color:green;width:50px;height:50px">  
+	   <button class=" " style="text-display: flex;align-items: center" onClick="window.open('ListReported.htm');">
+	   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+		 <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
+		 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+	   </svg> <span style="text-display: flex;align-items: center;height:300px">各校填報狀況，請點這裡</span>
+	   </button> 
 
 	   <button id='PDFGenerator' class=" " style="white-space: nowrap;line-height:23px;display:none;align:center" onClick="CreatePDF_UUID()">
 	   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
 		<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
 		<path d="M4.603 14.087a.8.8 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.7 7.7 0 0 1 1.482-.645 20 20 0 0 0 1.062-2.227 7.3 7.3 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a11 11 0 0 0 .98 1.686 5.8 5.8 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.86.86 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.7 5.7 0 0 1-.911-.95 11.7 11.7 0 0 0-1.997.406 11.3 11.3 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.8.8 0 0 1-.58.029m1.379-1.901q-.25.115-.459.238c-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361q.016.032.026.044l.035-.012c.137-.056.355-.235.635-.572a8 8 0 0 0 .45-.606m1.64-1.33a13 13 0 0 1 1.01-.193 12 12 0 0 1-.51-.858 21 21 0 0 1-.5 1.05zm2.446.45q.226.245.435.41c.24.19.407.253.498.256a.1.1 0 0 0 .07-.015.3.3 0 0 0 .094-.125.44.44 0 0 0 .059-.2.1.1 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a4 4 0 0 0-.612-.053zM8.078 7.8a7 7 0 0 0 .2-.828q.046-.282.038-.465a.6.6 0 0 0-.032-.198.5.5 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822q.036.167.09.346z"/>
 		</svg>請點這裡生成待核章的PDF檔<input type=hidden id=uuid_pdf><input type=hidden id=svSchAddress>
-	   </button><a id=link href="#" style="display:none;">(點這裡下載)，PDF檔案已傳送到填報的信箱</a>
+	   </button><div style="border-style:none;width:400px"><a id=link href="#" style="display:none;">(點這裡下載)，另將檔案傳送到填報的信箱</a></div>
 	   
-	   
-	   
-	   <button class=" " style="text-display: flex;align-items: center" onClick="window.open('ListReported.htm');">
-	   <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
-		 <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
-		 <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-	   </svg> <span style="text-display: flex;align-items: center;height:300px">各校填報狀況，請點這裡</span>
-	   </button>   
+	  </div> 
+
+
+	  </div>
+	  
+	  
+	  
+     </div>	  
+	  
+
    
 
 	 </div>  
